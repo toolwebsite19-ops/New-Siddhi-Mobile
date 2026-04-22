@@ -9,6 +9,7 @@ export function AdminLayout() {
   const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
+  const [loginError, setLoginError] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -38,11 +39,17 @@ export function AdminLayout() {
   }, []);
 
   const handleLogin = async () => {
+    setLoginError(null);
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      let errorMessage = e.message || "An error occurred during login.";
+      if (e.code === 'auth/unauthorized-domain') {
+        errorMessage = "Error: Your Netlify domain is not authorized in Firebase. Please add this domain to Firebase Authentication settings.";
+      }
+      setLoginError(errorMessage);
     }
   };
 
@@ -67,6 +74,11 @@ export function AdminLayout() {
           >
             Login with Google
           </button>
+          
+          {loginError && (
+            <p className="mt-4 text-red-500 text-sm font-medium">{loginError}</p>
+          )}
+
           {user && !isAdmin && (
             <p className="mt-4 text-danger text-sm">Account <b>{user.email}</b> is not authorized.</p>
           )}

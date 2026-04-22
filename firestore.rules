@@ -1,0 +1,100 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} { 
+      allow read, write: if false; 
+    }
+
+    function isValidId(id) { 
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); 
+    }
+    
+    function incoming() { 
+      return request.resource.data; 
+    }
+    
+    function existing() { 
+      return resource.data; 
+    }
+    
+    function isSignedIn() { 
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'gyantid830@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidProduct(data) {
+      return data.keys().hasAll(['id', 'name', 'brand', 'price', 'image', 'isOffer', 'rating', 'reviews'])
+        && data.id is string
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 200
+        && data.brand is string && data.brand.size() > 0 && data.brand.size() <= 100
+        && data.price is number
+        && data.image is string
+        && data.isOffer is bool
+        && data.rating is number
+        && data.reviews is number
+        && (!('originalPrice' in data) || data.originalPrice is number)
+        && (!('tag' in data) || data.tag is string)
+        && (!('urgency' in data) || data.urgency is string)
+        && (!('battery' in data) || data.battery is string)
+        && (!('camera' in data) || data.camera is string)
+        && (!('display' in data) || data.display is string)
+        && (!('processor' in data) || data.processor is string)
+        && (!('colors' in data) || data.colors is list)
+        && (!('images' in data) || data.images is list)
+        && (!('highlights' in data) || data.highlights is list)
+        && (!('storage' in data) || data.storage is list);
+    }
+
+    match /admins/{userId} {
+      allow read: if isAdmin();
+      allow write: if false; // Only manageable directly in Console for now
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isAdmin() && isValidProduct(incoming());
+      allow update: if isAdmin() && isValidProduct(incoming());
+      allow delete: if isAdmin();
+    }
+
+    function isValidReview(data) {
+      return data.keys().hasAll(['productId', 'authorName', 'rating', 'text', 'date', 'userId', 'isPublic']) 
+        && data.keys().size() >= 7
+        && data.productId is string && data.productId.size() > 0 && data.productId.size() <= 100
+        && data.authorName is string && data.authorName.size() > 0 && data.authorName.size() <= 100
+        && data.rating is number && data.rating >= 1 && data.rating <= 5
+        && data.text is string && data.text.size() <= 2000
+        && data.date is string && data.date.size() <= 50
+        && data.userId is string
+        && data.isPublic == true
+        && (!('authorPhoto' in data) || (data.authorPhoto is string && data.authorPhoto.size() <= 500));
+    }
+
+    match /reviews/{reviewId} {
+      allow list: if resource.data.isPublic == true;
+      allow get: if isValidId(reviewId) && resource.data.isPublic == true;
+
+      allow create: if isValidId(reviewId)
+                    && isValidReview(incoming())
+                    && incoming().keys().size() <= 8;
+
+      allow update: if isSignedIn()
+                    && isValidId(reviewId)
+                    && isValidReview(incoming())
+                    && incoming().userId == existing().userId
+                    && incoming().productId == existing().productId
+                    && incoming().diff(existing()).affectedKeys().hasOnly(['rating', 'text', 'date', 'authorName', 'authorPhoto']);
+
+      allow delete: if isSignedIn()
+                    && isValidId(reviewId)
+                    && existing().userId == request.auth.uid;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Review": {
+      "title": "Review",
+      "description": "A customer review for a product",
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string"
+        },
+        "authorName": {
+          "type": "string"
+        },
+        "authorPhoto": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "productId",
+        "authorName",
+        "rating",
+        "text",
+        "date",
+        "userId"
+      ]
+    }
+  },
+  "firestore": {
+    "reviews/{reviewId}": {
+      "schema": {
+        "$ref": "#/entities/Review"
+      },
+      "description": "Customer reviews for products"
+    }
+  }
+}

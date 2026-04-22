@@ -1,0 +1,68 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} { 
+      allow read, write: if false; 
+    }
+
+    // Phase 3: Primitive Definition
+    function isValidId(id) { 
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); 
+    }
+    
+    function incoming() { 
+      return request.resource.data; 
+    }
+    
+    function existing() { 
+      return resource.data; 
+    }
+    
+    function isSignedIn() { 
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    // Validation Blueprint for Review
+    function isValidReview(data) {
+      return data.keys().hasAll(['productId', 'authorName', 'rating', 'text', 'date', 'userId']) 
+        && data.keys().size() >= 6
+        && data.productId is string && data.productId.size() > 0 && data.productId.size() <= 100
+        && data.authorName is string && data.authorName.size() > 0 && data.authorName.size() <= 100
+        && data.rating is number && data.rating >= 1 && data.rating <= 5
+        && data.text is string && data.text.size() <= 2000
+        && data.date is string && data.date.size() <= 50
+        && data.userId is string && data.userId == request.auth.uid
+        && (!('authorPhoto' in data) || (data.authorPhoto is string && data.authorPhoto.size() <= 500));
+    }
+
+    match /reviews/{reviewId} {
+      // Allow list reads. The constraint is simply that the user must query safely or we allow blanket read 
+      // if public. Since reviews are public for a product, we restrict list to explicit query by productId.
+      allow list: if isValidId(reviewId) == false 
+                  && resource.data.productId is string; // Enforce filtering by productId
+
+      // Allow getting a single review.
+      allow get: if isValidId(reviewId);
+
+      allow create: if isSignedIn() 
+                    && isValidId(reviewId)
+                    && isValidReview(incoming())
+                    && incoming().date == request.time.toIsoString() // Might need to just rely on client string or use timestamp if using server time... wait, we can just allow client string if we want, but server-time is better.
+                    // Wait, using ISO string from client is common, let's just make sure it's valid schema.
+                    // Let's remove the strict timestamp requirement for `date` as a string for simplicity, we validate it exists. Let's just do `incoming().userId == request.auth.uid`.
+
+      allow update: if isSignedIn()
+                    && isValidId(reviewId)
+                    && isValidReview(incoming())
+                    && incoming().userId == existing().userId
+                    && incoming().productId == existing().productId
+                    && incoming().diff(existing()).affectedKeys().hasOnly(['rating', 'text', 'date', 'authorName', 'authorPhoto']);
+
+      allow delete: if isSignedIn()
+                    && isValidId(reviewId)
+                    && existing().userId == request.auth.uid;
+    }
+  }
+}

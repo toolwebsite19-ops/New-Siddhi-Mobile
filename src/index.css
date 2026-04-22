@@ -41,6 +41,10 @@
   body {
     @apply bg-bg-light text-text-main antialiased selection:bg-accent selection:text-white overflow-x-hidden transition-colors duration-300;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {

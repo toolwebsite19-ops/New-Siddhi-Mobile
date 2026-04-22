@@ -1,9 +1,15 @@
 import { Store, ShieldCheck, ThumbsUp, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
+import { SEO } from '../components/SEO';
 
 export function About() {
   return (
     <div className="min-h-screen bg-bg-light pt-8 pb-24">
+      <SEO 
+        title="About Us" 
+        description="Learn about New Siddhi Mobile in Narkatiaganj. Serving customers since 2016 with premium smartphones, original accessories, and trusted service." 
+        canonical="https://newsiddhimobilesr.netlify.app/about" 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

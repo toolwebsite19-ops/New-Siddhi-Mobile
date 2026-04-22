@@ -18,7 +18,14 @@ export function AdminLayout() {
       if (u) {
         // Check if user is admin either by hardcoded email or admins collection
         let hasAdminRights = false;
-        if (u.email === 'gyantid830@gmail.com') {
+        
+        // Add the client's email here when delivering
+        const authorizedEmails = [
+          'gyantid830@gmail.com', // Developer
+          // 'client@gmail.com' // Shop Owner
+        ];
+
+        if (u.email && authorizedEmails.includes(u.email)) {
           hasAdminRights = true;
         } else {
           try {

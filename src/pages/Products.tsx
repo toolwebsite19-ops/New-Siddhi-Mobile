@@ -4,6 +4,7 @@ import { Search, SlidersHorizontal, Smartphone, Star } from 'lucide-react';
 import { formatPrice } from '../data/products';
 import { useProducts } from '../hooks/useProducts';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 type SortOption = 'featured' | 'price-low' | 'price-high';
 
@@ -30,6 +31,11 @@ export function Products() {
 
   return (
     <div className="min-h-screen bg-bg-light pt-8 pb-24">
+      <SEO 
+        title="All Mobile Phones & Prices" 
+        description="Browse our complete collection of smartphones from top brands. Check latest prices of mobile phones available in Narkatiaganj." 
+        canonical="https://newsiddhimobilesr.netlify.app/products" 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header and Filters */}

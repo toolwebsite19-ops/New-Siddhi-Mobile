@@ -4,6 +4,7 @@ import { useProducts } from '../hooks/useProducts';
 import { Gift, Zap, Smartphone, Sparkles, Star, Clock } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 export function Offers() {
   const { products } = useProducts();
@@ -37,6 +38,11 @@ export function Offers() {
 
   return (
     <div className="min-h-screen bg-bg-light pt-8 pb-24">
+      <SEO 
+        title="Mobile Offers & Discounts" 
+        description="Current deals, discounts, and exchange offers running at New Siddhi Mobile Narkatiaganj. Get the best value for your money!" 
+        canonical="https://newsiddhimobilesr.netlify.app/offers" 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Hero Offers */}

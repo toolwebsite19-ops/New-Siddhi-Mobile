@@ -4,6 +4,7 @@ import { ShieldCheck, Truck, Clock, HeadphonesIcon, MapPin, Instagram, Star, Mes
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 const brands = [
   "https://cdn.simpleicons.org/apple/111111",
@@ -41,7 +42,10 @@ export function Home() {
 
   return (
     <div className="flex flex-col flex-1">
-      
+      <SEO 
+        title="Best Mobile Shop in Narkatiaganj" 
+        description="Narkatiaganj's trusted mobile shop. Best deals on top smartphone brands like Redmi, Oppo, Vivo, Samsung, Realme & Apple. Get instant finance & best exchange value." 
+      />
       {/* Premium Hero Section */}
       <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-primary text-white">
         <div className="absolute inset-0 z-0">
@@ -145,11 +149,11 @@ export function Home() {
             >
                <div className="absolute -inset-4 bg-primary/5 rounded-[20px] -z-10 transform -rotate-2"></div>
                <div className="aspect-[4/3] rounded-[16px] overflow-hidden shadow-sm border border-border group relative">
-                 <img src="https://i.ibb.co/FL5pwGkT/Screenshot-20260421-220037-Google.jpg" alt="New Siddhi Mobile Store front" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[800ms] ease-out will-change-transform" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/FL5pwGkT/Screenshot-20260421-220037-Google.jpg" alt="New Siddhi Mobile Store front" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[800ms] ease-out will-change-transform" referrerPolicy="no-referrer" loading="lazy" />
                </div>
                <div className="grid grid-cols-2 gap-6">
                  <div className="aspect-square rounded-[16px] overflow-hidden shadow-sm border border-border group">
-                   <img src="https://i.ibb.co/dsmzVfq2/Screenshot-20260421-220134-Google.jpg" alt="Customer experience" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[800ms] ease-out will-change-transform" referrerPolicy="no-referrer" />
+                   <img src="https://i.ibb.co/dsmzVfq2/Screenshot-20260421-220134-Google.jpg" alt="Customer experience" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[800ms] ease-out will-change-transform" referrerPolicy="no-referrer" loading="lazy" />
                  </div>
                  <div className="aspect-square rounded-[16px] overflow-hidden shadow-sm border border-border bg-primary flex flex-col items-center justify-center text-center p-6 text-primary-foreground group relative">
                     <MapPin size={32} className="mb-4 text-accent group-hover:scale-110 transition-transform duration-500 delay-100" />
@@ -247,7 +251,7 @@ export function Home() {
                       </div>
                     )}
                     {product.image && (
-                      <img src={product.image} alt={product.name} className="h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-700 ease-out relative z-0" referrerPolicy="no-referrer" />
+                      <img src={product.image} alt={product.name} className="h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-700 ease-out relative z-0" referrerPolicy="no-referrer" loading="lazy" />
                     )}
                   </Link>
                   <div className="p-6 flex-1 flex flex-col bg-white dark:bg-[#111111]">
@@ -316,7 +320,7 @@ export function Home() {
                   "{displayReviews[currentReview].text}"
                 </p>
                 <div className="flex items-center gap-3">
-                  <img src={displayReviews[currentReview].img} alt={displayReviews[currentReview].name} className="w-10 h-10 rounded-full border-2 border-white/20 object-cover" referrerPolicy="no-referrer" />
+                  <img src={displayReviews[currentReview].img} alt={displayReviews[currentReview].name} className="w-10 h-10 rounded-full border-2 border-white/20 object-cover" referrerPolicy="no-referrer" loading="lazy" />
                   <div className="text-left">
                     <p className="font-bold text-sm">{displayReviews[currentReview].name}</p>
                     <p className="text-xs text-gray-400">Narkatiyaganj Customer</p>
@@ -369,7 +373,7 @@ export function Home() {
                 href="https://www.instagram.com/reel/DXUrqN0jxXK/?igsh=eTJtbWk4bGRmYzNr" target="_blank" rel="noopener noreferrer" 
                 className="col-span-1 aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border block"
               >
-                 <img src="https://i.ibb.co/k2pZpbgV/Screenshot-20260422-231001-Instagram.jpg" alt="Redmi A7 Pro" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/k2pZpbgV/Screenshot-20260422-231001-Instagram.jpg" alt="Redmi A7 Pro" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" loading="lazy" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
@@ -393,7 +397,7 @@ export function Home() {
                 href="https://www.instagram.com/reel/DXYRI7qj6J7/?igsh=NHh2N3g5eGluOG8x" target="_blank" rel="noopener noreferrer" 
                 className="col-span-1 aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border block"
               >
-                 <img src="https://i.ibb.co/rKhGNkGX/Screenshot-20260422-231021-Instagram.jpg" alt="Oppo Reno 15 pro offer" className="w-full h-full object-cover top-0 object-top group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/rKhGNkGX/Screenshot-20260422-231021-Instagram.jpg" alt="Oppo Reno 15 pro offer" className="w-full h-full object-cover top-0 object-top group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" loading="lazy" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
@@ -417,7 +421,7 @@ export function Home() {
                 href="https://www.instagram.com/reel/DXLacByE1Ux/?igsh=a2R4cWlsbTZnMTBj" target="_blank" rel="noopener noreferrer" 
                 className="col-span-2 md:col-span-1 aspect-auto sm:aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border"
               >
-                 <img src="https://i.ibb.co/wNTjMcGn/Screenshot-20260422-231802-Instagram.jpg" alt="1M Siddhi Mobile Narkatiaganj" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/wNTjMcGn/Screenshot-20260422-231802-Instagram.jpg" alt="1M Siddhi Mobile Narkatiaganj" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" loading="lazy" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
@@ -442,7 +446,7 @@ export function Home() {
                   href="https://www.instagram.com/newsiddhimobile?igsh=MXU1Zmg0amNkcXR2MA==" target="_blank" rel="noopener noreferrer" 
                   className="row-span-1 group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border relative flex h-full min-h-[120px]"
                 >
-                   <img src="https://picsum.photos/seed/post1/400/400" alt="Instagram Post" className="w-1/3 md:w-2/5 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                   <img src="https://picsum.photos/seed/post1/400/400" alt="Instagram Post" className="w-1/3 md:w-2/5 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" loading="lazy" />
                    
                    <div className="p-4 md:p-6 flex flex-col justify-center bg-white dark:bg-[#111111] flex-1 relative z-10">
                       <div className="flex items-center gap-2 mb-2">
@@ -463,7 +467,7 @@ export function Home() {
                   href="https://www.facebook.com/share/1GQwEXK3yw/" target="_blank" rel="noopener noreferrer" 
                   className="row-span-1 group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border relative flex h-full min-h-[120px]"
                 >
-                   <img src="https://picsum.photos/seed/fb1/400/400" alt="Facebook Reel" className="w-1/3 md:w-2/5 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                   <img src="https://picsum.photos/seed/fb1/400/400" alt="Facebook Reel" className="w-1/3 md:w-2/5 object-cover group-hover:scale-105 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" loading="lazy" />
                    
                    <div className="absolute left-2 top-2 bg-black/50 backdrop-blur-md p-1.5 rounded-full text-white z-20">
                      <Facebook size={12} fill="white" />

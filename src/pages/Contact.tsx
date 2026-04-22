@@ -1,9 +1,15 @@
 import { Phone, MapPin, MessageCircle, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
+import { SEO } from '../components/SEO';
 
 export function Contact() {
   return (
     <div className="min-h-screen bg-bg-light pt-8 pb-24">
+      <SEO 
+        title="Contact Us | Visit Our Store" 
+        description="Visit New Siddhi Mobile at Main Road, Narkatiaganj. Get direction, contact number, and WhatsApp link for quick queries." 
+        canonical="https://newsiddhimobilesr.netlify.app/contact" 
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

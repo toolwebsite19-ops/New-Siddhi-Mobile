@@ -6,6 +6,7 @@ import { Star, ShieldCheck, Tag, Zap, ChevronRight, Truck, User } from 'lucide-r
 import React, { useEffect, useState } from 'react';
 import { auth } from '../lib/firebase';
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { SEO } from '../components/SEO';
 
 export function ProductDetail() {
   const { id } = useParams();
@@ -119,6 +120,12 @@ export function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-bg-light pt-6 pb-24">
+      <SEO 
+        title={`${product.name} Price in Narkatiaganj`} 
+        description={`Buy ${product.name} at the best price in Narkatiaganj. Check specs, features, offers, and available variants at New Siddhi Mobile.`} 
+        canonical={`https://newsiddhimobilesr.netlify.app/product/${product.id}`} 
+        image={product.image}
+      />
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
         <div className="flex items-center gap-2 text-sm text-text-muted font-medium">

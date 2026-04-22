@@ -366,21 +366,21 @@ export function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1, duration: 0.5, ease: 'easeOut' }}
-                href="https://www.instagram.com/newsiddhimobile?igsh=MXU1Zmg0amNkcXR2MA==" target="_blank" rel="noopener noreferrer" 
+                href="https://www.instagram.com/reel/DXUrqN0jxXK/?igsh=eTJtbWk4bGRmYzNr" target="_blank" rel="noopener noreferrer" 
                 className="col-span-1 aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border block"
               >
-                 <img src="https://picsum.photos/seed/reel1/400/711" alt="Instagram Reel" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/k2pZpbgV/Screenshot-20260422-231001-Instagram.jpg" alt="Redmi A7 Pro" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/50">
                      <Play size={24} className="ml-1 fill-white text-white" />
                    </div>
                  </div>
                  <div className="absolute bottom-4 left-4 right-4 z-20">
-                   <p className="text-white text-xs font-medium line-clamp-2">Check out our latest smartphone unboxing #NewSiddhiMobile</p>
+                   <p className="text-white text-xs font-medium line-clamp-3">REDMI NEW MODEL LUNCH A7 PRO (6300 MAH POWER FULL BATTERY) कम बजट में बेस्ट फोन</p>
                  </div>
               </motion.a>
 
@@ -390,21 +390,21 @@ export function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, duration: 0.5, ease: 'easeOut' }}
-                href="https://www.instagram.com/newsiddhimobile?igsh=MXU1Zmg0amNkcXR2MA==" target="_blank" rel="noopener noreferrer" 
+                href="https://www.instagram.com/reel/DXYRI7qj6J7/?igsh=NHh2N3g5eGluOG8x" target="_blank" rel="noopener noreferrer" 
                 className="col-span-1 aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border block"
               >
-                 <img src="https://picsum.photos/seed/reel2/400/711" alt="Instagram Reel" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/rKhGNkGX/Screenshot-20260422-231021-Instagram.jpg" alt="Oppo Reno 15 pro offer" className="w-full h-full object-cover top-0 object-top group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/50">
                      <Play size={24} className="ml-1 fill-white text-white" />
                    </div>
                  </div>
                  <div className="absolute bottom-4 left-4 right-4 z-20">
-                   <p className="text-white text-xs font-medium line-clamp-2">Amazing exchange offers going on now! Visit us today.</p>
+                   <p className="text-white text-xs font-medium line-clamp-3">OPPO Reno 15 pro Mini के साथ LAVA का SHARK 5G फोन FREE. BEST DEAL OFFER</p>
                  </div>
               </motion.a>
               
@@ -414,21 +414,21 @@ export function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
-                href="https://www.instagram.com/newsiddhimobile?igsh=MXU1Zmg0amNkcXR2MA==" target="_blank" rel="noopener noreferrer" 
+                href="https://www.instagram.com/reel/DXLacByE1Ux/?igsh=a2R4cWlsbTZnMTBj" target="_blank" rel="noopener noreferrer" 
                 className="col-span-2 md:col-span-1 aspect-auto sm:aspect-[9/16] relative group overflow-hidden bg-bg-light rounded-2xl shadow-sm border border-border"
               >
-                 <img src="https://picsum.photos/seed/reel3/400/711" alt="Instagram Reel" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
+                 <img src="https://i.ibb.co/wNTjMcGn/Screenshot-20260422-231802-Instagram.jpg" alt="1M Siddhi Mobile Narkatiaganj" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" referrerPolicy="no-referrer" />
                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md p-2 rounded-full text-white z-10">
                    <Video size={16} />
                  </div>
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/50">
                      <Play size={24} className="ml-1 fill-white text-white" />
                    </div>
                  </div>
                  <div className="absolute bottom-4 left-4 right-4 z-20">
-                   <p className="text-white text-xs font-medium line-clamp-2">New arrivals! The latest models are here. #Narkatiyaganj</p>
+                   <p className="text-white text-xs font-medium line-clamp-3">#1M (Siddhi Mobile Narkatiaganj) #reelsvideo #10kfollowe #1lik #naturephotography instagood</p>
                  </div>
               </motion.a>
 
